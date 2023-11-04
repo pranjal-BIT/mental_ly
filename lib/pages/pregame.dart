@@ -6,7 +6,7 @@ class PregamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Color(0xFF242931),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

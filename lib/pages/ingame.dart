@@ -27,13 +27,13 @@ class IngamePage extends StatelessWidget {
               ],
               decoration: InputDecoration(
                 border: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                  width: 2,
-                  style: BorderStyle.solid,
+                  borderSide: BorderSide(
+                    width: 2,
+                    style: BorderStyle.solid,
+                  ),
+                  //textAlign: TextAlign.center,
                 ),
-                //textAlign: TextAlign.center,
-                ),
-                
+
                 //labelText: 'Answer',
               ),
             ),
