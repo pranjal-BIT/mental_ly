@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
   gap: ^3.0.1
+  audioplayers: ^5.2.0
+  lottie: ^2.7.0
 
 dev_dependencies:
   flutter_test:

@@ -30,24 +30,29 @@ class IngamePage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(40),
                 child: TextField(
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly,
-                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                  ],
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        width: 2,
-                        style: BorderStyle.solid,
-                        color: Colors.black54,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly,
+                      FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                    ],
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          width: 2,
+                          style: BorderStyle.solid,
+                          color: Colors.black54,
+                        ),
+                        //textAlign: TextAlign.center,
                       ),
-                      //textAlign: TextAlign.center,
-                    ),
 
-                    //labelText: 'Answer',
-                  ),
-                ),
+                      //labelText: 'Answer',
+                    ),
+                    style: TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black54,
+                      fontFamily: "Outfit",
+                    )),
               ),
             ]),
           ),

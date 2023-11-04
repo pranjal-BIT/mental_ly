@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mathe/pages/ingame.dart';
+import 'package:mathe/pages/loading.dart';
 import 'package:mathe/pages/postgame.dart';
 import 'package:mathe/pages/pregame.dart';
 import 'package:mathe/themes/dark_mode.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IngamePage(),
+      home: LoadingPage(),
       theme: lightMode,
     );
   }
