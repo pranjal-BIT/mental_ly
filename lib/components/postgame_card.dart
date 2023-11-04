@@ -12,7 +12,7 @@ class _PostGameCardState extends State<PostGameCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xFFB4CCB9),
+      color: Color(0xFFD3BC8D),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
@@ -23,25 +23,33 @@ class _PostGameCardState extends State<PostGameCard> {
             children: [
               Text(
                 "You Won",
-                style: TextStyle(fontSize: 36),
+                style: TextStyle(height: 1.2, fontSize: 48),
               ),
-              Gap(100),
+              Gap(40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Rematch"),
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF66B3E0)),
-                  ),
-                  Gap(50),
-                  ElevatedButton(
+                  SizedBox(
+                    width: 135,
+                    height: 56,
+                    child: ElevatedButton(
                       onPressed: () {},
-                      child: Text("Play"),
+                      child: Text("Rematch"),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.lightGreen,
-                      )),
+                          backgroundColor: Color(0xFF66B3E0)),
+                    ),
+                  ),
+                  Gap(20),
+                  SizedBox(
+                    width: 135,
+                    height: 56,
+                    child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text("Play"),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightGreen,
+                        )),
+                  ),
                 ],
               )
             ],

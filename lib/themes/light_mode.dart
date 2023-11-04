@@ -11,5 +11,6 @@ ThemeData lightMode = ThemeData(
   textTheme: ThemeData.light().textTheme.apply(
         bodyColor: Color(0xFF333333),
         displayColor: Colors.black,
+        fontFamily: "Outfit",
       ),
 );
