@@ -17,10 +17,11 @@ class _LoadingCardState extends State<LoadingCard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.network(
-                "https://lottie.host/4031bacb-1b15-4cdc-8339-a109d0ec2c46/FcGijE4kc9.json"), //https://lottie.host/?file=4031bacb-1b15-4cdc-8339-a109d0ec2c46/FcGijE4kc9.json
-            Text("Finding another nerd...")
+            //Lottie.network("https://lottie.host/4031bacb-1b15-4cdc-8339-a109d0ec2c46/FcGijE4kc9.json"), //https://lottie.host/?file=4031bacb-1b15-4cdc-8339-a109d0ec2c46/FcGijE4kc9.json
+            Lottie.asset("assets/loading.json"),
+            Center(child: Text("Finding another nerd..."))
           ],
         ));
+        
   }
 }
