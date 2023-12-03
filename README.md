@@ -1,6 +1,6 @@
 # mathe
 
-A new Flutter project.
+A kezual Multiplayer Mathematics game
 
 ## Getting Started
 
