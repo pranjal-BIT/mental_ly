@@ -91,7 +91,7 @@ class _NewInGamePageState extends State<NewInGamePage> {
 
     // Listen for done and gamedata event from server
 
-    socket.on("done", (data) => { isFirst = false,print(isFirst)});
+    socket.on("done", (data) => {isFirst = false, print(isFirst)});
     socket.on(
         "gamedata",
         (data) => {
@@ -108,13 +108,7 @@ class _NewInGamePageState extends State<NewInGamePage> {
 
     // Check for show event to show result
 
-    socket.on("show", (data) => {
-      print("showresult"),
-      gotoResult()
-    });
-
-
-
+    socket.on("show", (data) => {print("showresult"), gotoResult()});
 
     super.initState();
   }
@@ -175,31 +169,38 @@ class _NewInGamePageState extends State<NewInGamePage> {
     userAnswer = '';
     if (answer == widget.list[question - 1]["answer"] as int) {
       //Correct
-      if(!last) {
+      if (!last) {
         scoreCount += 10;
       }
 
-      showDialog(
-          context: context,
-          builder: (context) {
-            return const AlertDialog(
-              backgroundColor: Color(0xFFE59E6D),
-              content: SizedBox(
-                height: 100,
-                width: 100,
+      showGeneralDialog(
+        context: context,
+        barrierDismissible: true,
+        barrierLabel: '',
+        pageBuilder: (BuildContext context, Animation<double> animation,
+            Animation<double> secondaryAnimation) {
+          return Center(
+            child: SizedBox(
+              height: 100,
+              width: 100,
+              child: Card(
+                color: const Color(0xFFE59E6D),
                 child: Center(
                   child: Text(
                     "Correct",
                     style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black54,
-                        fontFamily: "Outfit",
-                        fontWeight: FontWeight.bold),
+                      fontSize: 24,
+                      color: Colors.black54,
+                      fontFamily: "Outfit",
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            );
-          });
+            ),
+          );
+        },
+      );
       Future.delayed(const Duration(seconds: 1), () {
         newQuestion();
         Navigator.of(context).pop();
@@ -211,27 +212,34 @@ class _NewInGamePageState extends State<NewInGamePage> {
       //Wrong
 
       HapticFeedback.heavyImpact();
-      showDialog(
-          context: context,
-          builder: (context) {
-            return const AlertDialog(
-              backgroundColor: Color(0xFFE59E6D),
-              content: SizedBox(
-                height: 100,
-                width: 100,
+      showGeneralDialog(
+        context: context,
+        barrierDismissible: true,
+        barrierLabel: '',
+        pageBuilder: (BuildContext context, Animation<double> animation,
+            Animation<double> secondaryAnimation) {
+          return Center(
+            child: SizedBox(
+              height: 100,
+              width: 100,
+              child: Card(
+                color: const Color(0xFFE59E6D),
                 child: Center(
                   child: Text(
                     "Wrong Answer",
                     style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black54,
-                        fontFamily: "Outfit",
-                        fontWeight: FontWeight.bold),
+                      fontSize: 24,
+                      color: Colors.black54,
+                      fontFamily: "Outfit",
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            );
-          });
+            ),
+          );
+        },
+      );
       Future.delayed(const Duration(seconds: 1), () {
         Navigator.of(context).pop();
         newQuestion();
@@ -247,23 +255,20 @@ class _NewInGamePageState extends State<NewInGamePage> {
       print(scoreCount);
       timer.cancel();
       timer2.cancel();
-      if(isFirst){
-        socket.emit("done",jsonEncode({"gamertag": _gamertag, "score": scoreCount}));
-      }
-      else{
+      if (isFirst) {
+        socket.emit(
+            "done", jsonEncode({"gamertag": _gamertag, "score": scoreCount}));
+      } else {
         socket.emit("show");
         gotoResult();
       }
       last = true;
       socket.emit(
           "gamedata", jsonEncode({"gamertag": _gamertag, "score": scoreCount}));
-
     } else {
       setState(() {
         userQuestion = widget.list[question++]["question"];
       });
-
-
 
       timer.cancel();
       socket.emit("gamedata",
