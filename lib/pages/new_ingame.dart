@@ -180,6 +180,7 @@ class _NewInGamePageState extends State<NewInGamePage> {
       }
 
       showDialog(
+          barrierDismissible: false,
           context: context,
           builder: (context) {
             return const AlertDialog(
@@ -212,6 +213,7 @@ class _NewInGamePageState extends State<NewInGamePage> {
 
       HapticFeedback.heavyImpact();
       showDialog(
+          barrierDismissible: false,
           context: context,
           builder: (context) {
             return const AlertDialog(
